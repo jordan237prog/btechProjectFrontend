@@ -16,7 +16,7 @@ const initialState = user
                     .then( 
                         user => {
                             commit('loginSuccess', user);
-                            return Promise.resolve(user);
+                            return (Promise.resolve(user), user);
                         },
                         error => {
                             commit('loginFailure');

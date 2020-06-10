@@ -11,10 +11,10 @@
           </router-link> -->
         </li>
         <li v-if="showLanceBoard" class="nav-item">
-          <router-link to="/lance" class="nav-link">Lance Board</router-link>
+          <router-link to="/lance" class="nav-link">DashBoard</router-link>
         </li>
         <li v-if="showEnterpriseBoard" class="nav-item">
-          <router-link to="/mod" class="nav-link">Enterprise Board</router-link>
+          <router-link to="/enterprise" class="nav-link">DashBoard</router-link>
         </li>
 
       </div>
@@ -62,14 +62,14 @@ export default {
     },
     showLanceBoard() {
       if (this.currentUser && this.currentUser.roles) {
-        return this.currentUser.roles.includes('ROLE_LANCE');
+        return this.currentUser.roles.includes('LANCE');
       }
 
       return false;
     },
     showEnterpriseBoard() {
       if (this.currentUser && this.currentUser.roles) {
-        return this.currentUser.roles.includes('ROLE_ENTERPRISE');
+        return this.currentUser.roles.includes('ENTERPRISE');
       }
 
       return false;

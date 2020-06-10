@@ -87,9 +87,19 @@ export default {
         }
 
         if (this.user.username && this.user.password) {
-          this.$store.dispatch('login', this.user).then(
-            () => {
-              this.$router.push('/profile');
+         var promise = this.$store.dispatch('login', this.user);
+          promise.then(
+            (user) => {
+              
+              if((user.roles[0])==="ENTERPRISE"){
+                this.$router.push('/enterprise');
+              }
+              else if((user.roles[0])==="LANCE"){
+                this.$router.push('/lance');
+              }else{
+                this.$router.push('/profile');
+              }
+               //
             },
             error => {
               this.loading = false;
